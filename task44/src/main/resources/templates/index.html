@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+<h1>Arithmetic Calculator</h1>
+
+<form th:action="@{/calculate}" method="post">
+    <input type="text" name="expression" required />
+    <button type="submit">Calculate</button>
+</form>
+
+<table>
+    <tr>
+        <th>Expression</th>
+        <th>Result</th>
+    </tr>
+    <tr th:each="calculation : ${calculations}">
+        <td th:text="${calculation.expression}"></td>
+        <td th:text="${calculation.result}"></td>
+    </tr>
+</table>
+</body>
+</html>
